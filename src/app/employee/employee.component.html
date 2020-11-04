@@ -1,0 +1,65 @@
+<div class="container mt-3">
+  <div class="row">
+  <button (click)="OnNewAddEmployeeClick()" class=" form-control btn btn-primary">Add New Employee</button>
+    <br><br>
+    <div class="container mt-3">
+  <div class="row" *ngIf="flag;else elseblock">
+
+    <h3>Add Employee</h3>
+      <input type="number" [(ngModel)]="id1" class="form-control" placeholder="Enter id">
+      <br><br>
+      <input type="text" [(ngModel)]="name" class="form-control" placeholder="Enter name">
+      <br><br>
+      <input type="text" [(ngModel)]="age" class="form-control" placeholder="Enter age">
+      <br><br>
+      <input type="text" [(ngModel)]="email" class="form-control" placeholder="Enter email">
+      <br><br>
+      <input type="radio" [(ngModel)]="gender"  value="male">
+      <label for="male">Male</label><br>
+      <input type="radio" [(ngModel)]="gender"  value="female">
+      <label for="female">Female</label><br>
+      <div class="container mt-3">
+      <button class="btn btn-primary" (click)="OnEmpAdd()">Save Employee</button>&nbsp;
+      <button class="btn btn-primary" (click)="OnCancleEmp()">Cancle</button>
+      </div>
+    </div>
+    <ng-template #elseblock>
+      <h1>This is Else Block.</h1>
+      </ng-template>
+</div>
+  </div>
+  <br>
+
+      <div class="row">
+  <table class="table1" style="width: 800px; height: 200px;" border="2px">
+    <thead>
+        <th class="pratibha" colspan="6" style="font-size:20px; height: 53px;">Employee Details</th>
+            <tr class="pratibha">
+              <th>Id</th>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Email</th>
+              <th>Gender</th>
+              <th>Action</th>
+            </tr>
+
+      </thead>
+      <tbody>
+        <tr class="pratibha" *ngFor="let item of arrEmployee">
+          <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.age}}</td>
+          <td>{{item.email}}</td>
+          <td>{{item.gender}}</td>
+          <td>
+            <button (click)="OnEmpDelete(item)">Delete</button>
+
+          </td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+</div>
+
+<br>
+

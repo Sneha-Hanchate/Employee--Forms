@@ -1,0 +1,79 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <div class="col-md-6">
+
+      <div class="card cardcorner div outercard" >
+        <div class="card-body">
+          <div class="card  cardcorner innercard zero-padding half-height" >
+          <div class="card-body">
+            <div class="row">
+            <div class="col-md-6 fill-space">
+              <div class="col">
+                <div class="row">
+              <img src="./assets/11.JPG">
+              </div>
+
+              <div class="col">
+                <img src="./assets/1.jpg">
+              </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+            <h3 style="text-align: center; color:lightgreen;">Create Account</h3>
+
+            <div>
+              <div class="wrap-input100 validate-input">
+              <span class="label-input100" >Name</span>
+              <input class="input100" type="text" formControlName="name" >
+
+              </div>
+              <p class="lblError" *ngIf="signupForm.get('name').hasError('required') && !signupForm.get('name').pristine" >Name is required</p>
+              <p class="lblError" *ngIf="signupForm.get('name').hasError('minlength') && !signupForm.get('name').pristine" >Minimum 6 characters required.</p>
+              <p class="lblError" *ngIf="signupForm.get('name').hasError('invalidName') && !signupForm.get('name').pristine" >Invalid Name</p>
+            </div>
+
+            <div>
+              <div class="wrap-input100 validate-input">
+              <span class="label-input100">Email</span>
+              <input class="input100" type="email" formControlName="email">
+              </div>
+              <p class="lblError" *ngIf="signupForm.get('email').hasError('required') && !signupForm.get('email').pristine" >Email is required</p>
+              <p class="lblError" *ngIf="signupForm.get('email').hasError('email') && !signupForm.get('email').pristine" >Invalid Email</p>
+            </div>
+
+            <div formGroupName="passwordgroup">
+              <div>
+              <div class="wrap-input100 validate-input">
+              <span class="label-input100">Password</span>
+              <input class="input100" type="password" formControlName="password" >
+              </div>
+              <p class="lblError" *ngIf="signupForm.get('passwordgroup').get('password').hasError('required') &&  !signupForm.get('passwordgroup').get('password').pristine">Password is required</p>
+              </div>
+
+
+            <div>
+              <div class="wrap-input100 validate-input">
+              <span class="label-input100">Confirm Password</span>
+              <input class="input100" type="password" formControlName="confpassword">
+              </div>
+              <p class="lblError" *ngIf="signupForm.get('passwordgroup').get('confpassword').hasError('required') && !signupForm.get('passwordgroup').get('confpassword').pristine">Confirm Password is required.</p>
+            </div>
+
+            <p class="lblError" *ngIf="signupForm.get('passwordgroup').hasError('passwordMatchError') && !signupForm.get('passwordgroup').pristine"> Password doesn't match</p>
+             </div>
+
+            <button type="submit" class="button">Submit</button>
+
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+     </div>
+    </div>
+     </form>
+
+  </div>
+</div>

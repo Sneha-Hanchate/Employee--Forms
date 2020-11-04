@@ -1,0 +1,21 @@
+.even
+{
+  background-color: burlywood;
+}
+
+.odd
+{
+  background-color: cyan;
+}
+
+.first
+{
+  color: green;
+  background-color: rosybrown;
+}
+.last
+{
+  color: red;
+  background-color: skyblue;
+}
+

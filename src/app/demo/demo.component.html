@@ -1,0 +1,41 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+
+    <div class="col-md-6">
+      <form (ngSubmit)="OnEmpAdd(f)" #f="ngForm">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">Signup Form</h3>
+        <div class="form-group">
+          <label>Name:</label>
+          <input type="text"  name="name" ngModel placeholder="Enter Name" class="form-control">
+
+        </div>
+
+        <div class="form-group">
+          <label>Email:</label>
+          <input type="text" name="email" email ngModel  required #email= "ngModel"  placeholder="Enter Email" class="form-control">
+          <label *ngIf="email.hasError('required') &&  !email.pristine" class="alert alert-danger"> Email is required</label>
+          <label *ngIf="email.hasError('email') && ! email.pristine" class="alert alert-danger">Invalid Email</label>
+        </div>
+
+        <div class="form-group">
+          <label>Salary:</label>
+          <input type="number" name="salary" ngModel placeholder="Enter Salary" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label>City:</label>
+          <input type="text" name="city" ngModel placeholder="Enter City" class="form-control">
+        </div>
+
+        <button type="submit" class="from-control btn btn-primary">Add Emp</button>
+      </div>
+    </div>
+  </form>
+  </div>
+
+  </div>
+</div>

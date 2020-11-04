@@ -1,0 +1,30 @@
+.table1
+{
+       text-align: center;
+        border: 2px solid #17202A;
+	  	/*border-collapse: collapse;*/
+				margin: auto;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 15px;
+        padding: 20px;
+}
+
+td{
+  font-size: 15px;
+}
+.pratibha{
+  text-align: center;
+  height: 30px;
+}
+
+.done
+{
+  color:green;
+}
+
+.pending
+{
+  color: red;
+}
+
+

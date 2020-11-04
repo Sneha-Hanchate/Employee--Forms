@@ -1,0 +1,35 @@
+<div class="container mt-3">
+  <div class="row" >
+    <h3>Add Product</h3>
+      <input type="number" [(ngModel)]="id2" class="form-control" placeholder="Enter id">
+      <br><br>
+      <input type="text" [(ngModel)]="name1" class="form-control" placeholder="Enter name">
+      <br><br>
+      <input type="text" [(ngModel)]="date" class="form-control" placeholder="Enter date">
+      <br><br>
+      </div>
+      <button class="btn btn-primary" (click)="OnAddProduct()">Add Product</button>
+      <table class="table1" style="width: 800px; height: 250px;" border="2px">
+        <thead>
+            <th class="pratibha" colspan="4" style="font-size:20px; height: 53px;">Mobile Product Details</th>
+                <tr class="pratibha">
+                  <th>Id</th>
+                  <th>Name</th>
+                  <th>Date</th>
+                  <th>Action</th>
+                </tr>
+          </thead>
+          <tbody >
+            <tr class="pratibha" *ngFor="let item of arrProduct">
+              <td>{{item.productId}}</td>
+              <td>{{item.name}}</td>
+              <td>{{item.productDate}}</td>
+              <td>
+                <button (click)="OnProductDelete(item)">Delete</button>
+
+              </td>
+            </tr>
+            </tbody>
+        </table>
+</div>
+

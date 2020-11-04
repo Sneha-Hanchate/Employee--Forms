@@ -1,0 +1,90 @@
+<!--<p>todos works!</p>
+<h1>Todo Component</h1>
+  <ul>
+    <li *ngFor="let item of arrName">
+      {{item}}
+    </li>
+  </ul>
+
+
+  <ul>
+    <li *ngFor="let item of arrNumber">
+      {{item}}
+    </li>
+  </ul>-->
+<div class="container mt-3">
+  <h1 style="text-align: center; font-family: 'Times New Roman';">Todos Component</h1>
+    <div class="row">
+      <button (click)="OnNewAddTaskClick()" class=" form-control btn btn-primary">Add New Task</button>
+      <br><br>
+      <div class="container mt-3">
+      <div class="row" *ngIf="flag;else elseblock">
+          <h3>Add Todos Component</h3>
+
+            <input type="number" [(ngModel)]="Id" class="form-control" placeholder="Enter id">
+            <br><br>
+            <input type="text" [(ngModel)]="Title" class="form-control" placeholder="Enter title">
+            <br><br>
+        <!-- <input type="text" [(ngModel)]="status" class="form-control" placeholder="Enter status">-->
+
+          <div class="dropdown">
+            <h5 style="font-family: 'Times New Roman';">Select Status</h5>
+          <select [(ngModel)]="Status" class="form-control" >
+            <option>--Select Status</option>
+              <option>done</option>
+              <option>pending</option>
+            </select>
+          </div>
+
+          <div class="container mt-3">
+          <button class="btn btn-primary" (click)="OnTaskAdd()">Save Task</button>&nbsp;
+          <button class="btn btn-primary" (click)="OnCancleClick()">Cancle</button>
+            </div>
+        </div>
+        <ng-template #elseblock>
+            <h1>This is a Else Block.</h1>
+        </ng-template>
+</div>
+   </div>
+<br>
+  <!-- <button class="btn btn-primary" (click)="OnTaskAdd()">Add New</button>-->
+
+    <div class="row">
+
+        <table class="table1" style="width: 800px; height: 150px;" border="2px">
+        <thead>
+            <th class="pratibha" colspan="4" style="font-size:20px; height: 51px;">Todos Componant</th>
+                <tr class="pratibha">
+                  <th>Id</th>
+                  <th>Title</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+          </thead>
+          <tbody>
+            <tr class="pratibha" *ngFor="let item of arrTodos">
+              <td>{{item.Id}}</td>
+              <td>{{item.Title}}</td>
+            <!--  <td *ngIf="item.status=='pending'"><span style="color: red;">{{item.status}}</span></td>
+              <td *ngIf="item.status=='done'"><span style="color: green;">{{item.status}}</span></td>-->
+              <td><span [ngClass]="{done: item.Status=='done','pending': item.Status=='pending'}">{{item.Status}}</span></td>
+            <td>
+                  <button (click)="OnDeleteClick(item)">Delete</button>
+                  <button (click)="OnEditClick(item)">Edit</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+    <br>
+        <ul>
+            <li *ngFor="let item of arrTodosinterface">
+              {{item.Title}}
+              {{item.Id}}
+            </li>
+          </ul>
+ </div>
+<br>
+
+
+
